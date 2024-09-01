@@ -1,0 +1,65 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+*.db
+
+# Environment variables
+.env
+.env.*
+
+# Django migrations
+**/migrations/*
+
+# If using SQLite, it's safe to ignore the database file
+*.sqlite3
+
+# Media and static files (optional, if you're using a production server to serve static/media files)
+media/
+staticfiles/
+
+# Local development settings
+local_settings.py
+
+# If you are using containers
+docker-compose.yml
+*.env
+
+# Ignore all env directories in the project
+env/
+.venv
+ENV/
+env.bak/
+venv.bak/
+
+# Virtual environment (Python specific)
+.vscode/
+.idea/
+.vscode/settings.json
+.idea/*
+
+# JetBrains IDEs
+*.idea/
+
+# If you are using macOS
+.DS_Store
+
+# Node.js dependencies (for example, if you're using npm/yarn for frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.vscode/
+*.sublime-project
+*.sublime-workspace

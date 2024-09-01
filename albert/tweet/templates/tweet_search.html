@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Tweet Page{% endblock title %}
+
+{% block content %}
+<h1 class="text-center mb-5">Welcome to tweet Page</h1>
+<div class="d-flex justify-content-between">
+  <a class="btn btn-primary mb-4 w-25" href="{% url "tweet_create" %}">Create a tweet</a>
+<div class="container">
+  <form method="get" class="d-flex gap-2 justify-content-end">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+</div>
+</div>
+<div class="container d-flex gap-4 flex-wrap">
+    {% for tweet in tweets %}
+<div class="card" style="width: 18rem;">
+    <img src="{% if tweet.photo %}{{ tweet.photo.url }}{% else %}test.png{% endif %}" class="card-img-top border-4 border-bottom" alt="image">
+    <div class="card-body">
+      <div class="d-flex justify-content-between gap-2">
+        <h6 class="card-title" style="font-size: 0.6rem;">Created By: {{tweet.user.username}}</h6>
+        <h6 class="card-title" style="font-size: 0.6rem;">Posted On: {{tweet.created_at}}</h6>
+      </div>
+      <p class="card-text">{{tweet.text}}</p>
+      {% if tweet.user == user %}
+        <a href="{% url "tweet_edit" tweet.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url "tweet_delete" tweet.id %}" class="btn btn-danger">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}
